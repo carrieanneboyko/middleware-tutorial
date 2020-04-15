@@ -1,4 +1,6 @@
 import { insert, find, reset } from "./";
+
+const UNIQUE_TEST_NUMBER = Math.random().toString();
 const jQuestion = {
   id: 118240,
   answer: "Intel",
@@ -18,6 +20,7 @@ const jQuestion = {
     updated_at: "2014-02-14T02:47:38.731Z",
     clues_count: 10,
   },
+  uniqueTestNumber: UNIQUE_TEST_NUMBER
 };
 
 describe("NeDB Database Test", () => {
