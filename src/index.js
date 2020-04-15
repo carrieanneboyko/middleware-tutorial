@@ -1,9 +1,23 @@
-import executeServer from './server';
+// node fs imports
+import path from "path";
+// module imports
 import dotenv from "dotenv";
+// local imports
+import launchServer from "./server";
 
-if(process.env.NODE_ENV === undefined){
-  dotenv.config({ path: path.join(__dirname, '../../.env') });
-  console.log("process.env.NODE_ENV after:", process.env.NODE_ENV);
-}
+dotenv.config({ path: path.join(__dirname, "../.env") });
+const PORT = process.env.PORT;
 
-executeServer(); 
+const main = (port) => {
+  const server = launchServer(port);
+  process.on("exit", () => {
+    console.log(`\nServer closing on port ${port}`);
+    server.close();
+    console.log(`Server closed. Goodbye!`);
+  });
+  process.on("SIGINT", () => {
+    process.exit();
+  });
+};
+
+main(PORT);

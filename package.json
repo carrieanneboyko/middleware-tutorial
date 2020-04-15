@@ -6,7 +6,7 @@
   "main": "index.js",
   "scripts": {
     "test": "env NODE_ENV=test jest",
-    "pretty": "prettier . --write",
+    "pretty": "prettier ./src --write",
     "build": "rimraf ./lib && babel src -d lib",
     "setupenv": "rimraf ./.env && touch .env && cat example.env > .env",
     "dev": "yarn build && nodemon ./lib/index.js",

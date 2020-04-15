@@ -20,7 +20,7 @@ const jQuestion = {
     updated_at: "2014-02-14T02:47:38.731Z",
     clues_count: 10,
   },
-  uniqueTestNumber: UNIQUE_TEST_NUMBER
+  uniqueTestNumber: UNIQUE_TEST_NUMBER,
 };
 
 describe("NeDB Database Test", () => {
