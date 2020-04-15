@@ -1,0 +1,27 @@
+{
+  "name": "middleware-course",
+  "version": "1.0.0",
+  "license": "MIT",
+  "author": "Brian Boyko <brian.boyko@publicissapient.com>",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "pretty": "prettier . --write",
+    "build": "rimraf ./lib && babel src -d lib"
+  },
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "express": "^4.17.1",
+    "nedb": "^1.8.0"
+  },
+  "devDependencies": {
+    "@babel/plugin-transform-async-to-generator": "^7.8.3",
+    "@babel/plugin-transform-regenerator": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "babel-jest": "^25.3.0",
+    "jest": "^25.3.0",
+    "prettier": "^2.0.4",
+    "rimraf": "^3.0.2"
+  }
+}
