@@ -5,21 +5,26 @@
   "author": "Brian Boyko <brian.boyko@publicissapient.com>",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "env NODE_ENV=test jest",
     "pretty": "prettier . --write",
-    "build": "rimraf ./lib && babel src -d lib"
+    "build": "rimraf ./lib && babel src -d lib",
+    "setupenv": "rimraf ./.env && touch .env && cat example.env > .env",
+    "dev": "yarn build && nodemon ./lib/index.js"
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "nedb": "^1.8.0"
+    "nedb": "^1.8.0",
+    "nodemon": "^2.0.3"
   },
   "devDependencies": {
     "@babel/plugin-transform-async-to-generator": "^7.8.3",
     "@babel/plugin-transform-regenerator": "^7.8.7",
     "@babel/preset-env": "^7.9.5",
     "babel-jest": "^25.3.0",
+    "copyfiles": "^2.2.0",
     "jest": "^25.3.0",
     "prettier": "^2.0.4",
     "rimraf": "^3.0.2"
