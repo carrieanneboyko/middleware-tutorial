@@ -10,7 +10,7 @@
     "build": "rimraf ./lib && babel src -d lib",
     "setupenv": "rimraf ./.env && touch .env && cat example.env > .env",
     "dev": "yarn build && nodemon ./lib/index.js",
-    "dev:test": "env NODE_ENV=hell yarn dev"
+    "dev:test": "env NODE_ENV=test yarn dev"
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",
