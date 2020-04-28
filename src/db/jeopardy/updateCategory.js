@@ -4,12 +4,12 @@ const updateCategory = (collection) => (criterion, newData) =>
     collection.update(
       criterion,
       { $set: newData },
-      { upsert: true, returnUpdatedDocs: true },
-      (err, newDocs) => {
+      { returnUpdatedDocs: true },
+      (err, numAffected, newDocs, upsert) => {
         if (err) {
           reject(err);
         }
-        resolve(docs);
+        resolve(newDocs);
       }
     );
   });
