@@ -5,10 +5,10 @@
   "author": "Brian Boyko <brian.boyko@publicissapient.com>",
   "main": "index.js",
   "scripts": {
-    "pretty": "prettier ./src --write",
     "build": "rimraf ./lib && babel src -d lib",
-    "setupenv": "rimraf ./.env && touch .env && cat example.env > .env",
     "dev": "yarn build && nodemon ./lib/index.js",
+    "pretty": "prettier ./src --write",
+    "setupenv": "rimraf ./.env && touch .env && cat example.env > .env",
     "test": "jest"
   },
   "dependencies": {

@@ -6,6 +6,10 @@ describe("jService", () => {
     expect(jService).toHaveProperty("getCategoryById");
     expect(jService).toHaveProperty("getCategoriesAndClues");
   });
+  it("will get categories", async () => {
+    const threeCategories = await jService.getCategories(3, 14);
+    expect(threeCategories).toHaveLength(3);
+  });
   it("will get categories and clues via jService.getCategoriesAndClues", async () => {
     const threeCategories = await jService.getCategoriesAndClues(3, 14);
     expect(threeCategories).toHaveLength(3);
