@@ -8,11 +8,13 @@
     "pretty": "prettier ./src --write",
     "build": "rimraf ./lib && babel src -d lib",
     "setupenv": "rimraf ./.env && touch .env && cat example.env > .env",
-    "dev": "yarn build && nodemon ./lib/index.js"
+    "dev": "yarn build && nodemon ./lib/index.js",
+    "test": "jest"
   },
   "dependencies": {
     "@babel/cli": "^7.8.4",
     "@babel/core": "^7.9.0",
+    "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",

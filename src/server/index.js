@@ -6,7 +6,7 @@ import cors from "cors";
 const launchServer = (port) => {
   const app = express();
 
-  app.use(morgan);
+  app.use(morgan("default"));
   app.use(cors());
   app.use(bodyParser.json());
 
