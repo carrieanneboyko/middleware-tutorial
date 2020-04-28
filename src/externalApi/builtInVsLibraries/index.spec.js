@@ -1,5 +1,5 @@
 import { getFirstPost } from "./builtInHttps";
-import { getFirstPostViaAxios } from "./axiosBased";
+import { getFirstPostViaAxios, postToApi } from "./axiosBased";
 
 const EXPECTED_RESULT = {
   userId: 1,
@@ -21,5 +21,11 @@ describe("Getting the first post", () => {
       const result = await getFirstPostViaAxios();
       expect(result).toEqual(EXPECTED_RESULT);
     });
+  });
+});
+describe("Using Axios to post", () => {
+  it("makes a post request", async () => {
+    const result = await postToApi({ title: "foo", body: "bar", userId: 1 });
+    expect(result).toEqual({ title: "foo", body: "bar", userId: 1, id: 101 });
   });
 });
