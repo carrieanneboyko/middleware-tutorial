@@ -2,6 +2,9 @@ import express from "express";
 import bodyParser from "body-parser";
 import morgan from "morgan";
 import cors from "cors";
+import querystring from "querystring";
+
+import jeopardyMiddleware from "./middleware/jeopardy";
 
 const launchServer = (port) => {
   const app = express();
@@ -17,6 +20,8 @@ const launchServer = (port) => {
   app.post("/hello-world", (_req, res) => {
     res.send("Hello World From Post!");
   });
+
+  app.get("/jeopardy/:identifier", jeopardyMiddleware);
 
   // error handlers
 

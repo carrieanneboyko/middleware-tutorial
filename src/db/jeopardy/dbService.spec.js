@@ -1,7 +1,7 @@
 import { dbService } from "./index";
 import db from "../index";
-import mockCategories from "./__mockdata__/categories.json";
-import mockCategoriesAndClues from "./__mockdata__/categories_clues.json";
+import mockCategories from "../../__mockdata__/categories.json";
+import mockCategoriesAndClues from "../../__mockdata__/categories_clues.json";
 
 const testDb = dbService(db.test);
 
