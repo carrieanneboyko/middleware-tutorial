@@ -1,9 +1,11 @@
+// ./src/externalApi/builtInVsLibraries/builtInHttps.js
 import https from "https"; // we don't need to yarn add https becase https is built into node!
+// if we were using http, import "http";
 
 export const getFirstPost = () =>
   new Promise((resolve, reject) => {
-    console.log("running");
-    const httpOptions = {
+    // we define the http options;
+    const httpsOptions = {
       method: "GET",
       hostname: "jsonplaceholder.typicode.com",
       path: "/posts/1",
@@ -11,10 +13,12 @@ export const getFirstPost = () =>
         Accept: "application/json",
       },
     };
-    const req = https.request(httpOptions, (res) => {
+    const req = https.request(httpsOptions, (res) => {
+      // req and res are not objects, they are 'streams';
       const dataArray = [];
       res.setEncoding("utf8"); // without this, we'll get a Buffer, not string.
       res.on("data", (chunk) => {
+        // data can often get sent in multiple chunks.
         dataArray.push(chunk);
       });
       res.on("end", () => {
